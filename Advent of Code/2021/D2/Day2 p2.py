@@ -1,18 +1,18 @@
 #2021
-#Day2 Problem1
+#Day2 Problem2
 
 with open("AOC D2.txt", "r") as inputs:
     lines = inputs.readlines()
     numbers = [entry.strip() for entry in lines]
 
-x = 0
-y = 0
+hp, depth, aim = 0, 0, 0
 for i in numbers:
     direction, amount = i.split(' ')[0], int(i.split(' ')[1])
     if 'forward' in direction:
-        x += amount
-    elif 'down' in direction:
-        y += amount
+        hp += amount
+        depth += aim*amount
     elif 'up' in direction:
-        y -= amount
-print(x*y)
+        aim -= amount
+    elif 'down' in direction:
+        aim += amount
+print(hp*depth)
