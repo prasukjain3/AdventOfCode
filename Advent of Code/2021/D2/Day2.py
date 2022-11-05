@@ -8,11 +8,11 @@ with open("AOC D2.txt", "r") as inputs:
 x = 0
 y = 0
 for i in numbers:
-    direction, amount = numbers[0].split(' '), int(numbers[0].split(' '))
+    direction, amount = i.split(' ')[0], int(i.split(' ')[1])
     if 'forward' in direction:
         x += amount
     elif 'down' in direction:
-        y -= amount
-    elif 'up' in direction:
         y += amount
+    elif 'up' in direction:
+        y -= amount
 print(x*y)
